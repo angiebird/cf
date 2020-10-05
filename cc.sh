@@ -1,1 +1,1 @@
-g++ -std=c++17 $1
+g++ -std=c++17 -DQLEG_DEBUG $1

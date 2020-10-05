@@ -23,8 +23,8 @@ using namespace std;
 
 typedef long long ll;
 
-#define QLEG_DEBUG
-#ifdef QLEG_DEBUG
+// #define int ll
+
 template<typename T> ostream& operator<<(ostream& os, const vector<T>& v) {
   string sep = " ";
   for (const auto& x : v) {
@@ -42,9 +42,10 @@ template<typename Head, typename... Tail> void dbg_out(Head H, Tail... T) {
   cerr << ' ' << H; dbg_out(T...);
 }
 
-#define dbg_var(var) \
-   fprintf (stderr, #var " %d \n", var);
-
+#ifdef QLEG_DEBUG
+#define dbg(...) cerr << "(" << #__VA_ARGS__ << "):", dbg_out(__VA_ARGS__)
+#else
+#define dbg(...)
 #endif
 
 typedef pair<int,int> pii;
@@ -126,13 +127,12 @@ void get_divisors(const vi& factors, const vi& powers, vi& divs, int idx = 0) {
   get_divisors(factors, powers, divs, idx+1);
 }
 
-int main(){
+signed main(){
   ios::sync_with_stdio(0);cin.tie(0);
   int T = 1; cin>>T;
   for(int t = 0; t < T; t++) {
     int n;
     cin>>n;
-
   }
   return 0;
 }
