@@ -23,20 +23,35 @@ using namespace std;
 
 typedef long long ll;
 
-// #define ll int
+#define QLEG_DEBUG
+#ifdef QLEG_DEBUG
+template<typename T> ostream& operator<<(ostream& os, const vector<T>& v) {
+  string sep = " ";
+  for (const auto& x : v) {
+    os << x << sep;
+  }
+  return os << '\n';
+}
+
+template<typename A, typename B> ostream& operator<<(ostream& os, const pair<A, B>& p) {
+  return os << '(' << p.first << ", " << p.second << ')';
+}
+
+void dbg_out() { cerr << endl; }
+template<typename Head, typename... Tail> void dbg_out(Head H, Tail... T) {
+  cerr << ' ' << H; dbg_out(T...);
+}
+
+#define dbg_var(var) \
+   fprintf (stderr, #var " %d \n", var);
+
+#endif
 
 typedef pair<int,int> pii;
 typedef vector<int> vi;
 template<typename T> using min_queue=priority_queue<T,vector<T>,greater<T>>;
 
 const ll MOD=1e9+7;
-
-void print_vi(vi& a) {
-  for(auto f :a) {
-    cout << f << " ";
-  }
-  cout << "\n";
-}
 
 vi get_primes(int n, vi& prime_ls) {
   vi min_div_ls(n + 1);
@@ -113,10 +128,11 @@ void get_divisors(const vi& factors, const vi& powers, vi& divs, int idx = 0) {
 
 int main(){
   ios::sync_with_stdio(0);cin.tie(0);
-  int T; cin>>T;
+  int T = 1; cin>>T;
   for(int t = 0; t < T; t++) {
     int n;
     cin>>n;
+
   }
   return 0;
 }
